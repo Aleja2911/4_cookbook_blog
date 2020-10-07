@@ -1,20 +1,23 @@
 import React, { useState, useEffect } from "react";
-import { Switch, Route, NavLink } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 
-import "bootstrap/dist/css/bootstrap.min.css";
-
+// contentful client //
 import { client } from "./client.js";
-import RecipeCard from "./components/RecipeCard";
-import RecipesLandingPage from "./components/pages/RecipesLandingPage";
-import BlogLandingPage from "./components/pages/BlogLandingPage";
 
+// importing components //
+import RecipesLandingPage from "./pages/RecipesLandingPage";
+import BlogLandingPage from "./pages/BlogLandingPage";
+import HomePage from "./pages/HomePage";
+import NavbarComponent from "./components/NavbarComponent";
+import FooterComponent from "./components/FooterComponent";
 
 const App = () => {
-	// setup the states //
-	/* const [data, setData] = useState([]); */
+	// set up the states //
 	const [recipes, setRecipes] = useState([]);
 	const [blogData, setBlogData] = useState([]);
+	const [authors, setAuthors] = useState([]);
 
+	// get all recipes (content_type = contentful) //
 	useEffect(() => {
 		client
 			.getEntries({ content_type: "recipes" })
@@ -24,6 +27,7 @@ const App = () => {
 			.catch((error) => console.log("ERROR"));
 	}, []);
 
+	// get all blog posts (content_type = contentful) //
 	useEffect(() => {
 		client
 			.getEntries({ content_type: "blogPost" })
@@ -33,17 +37,19 @@ const App = () => {
 			.catch((error) => console.log("ERROR"));
 	}, []);
 
+	useEffect(() => {
+		client
+			.getEntries({ content_type: "person" })
+			.then((response) => {
+				setAuthors(response.items);
+			})
+			.catch((error) => console.log("ERROR"));
+	}, []);
+
 	return (
 		<div className="App">
 			<header>
-				logo
-				<nav>
-					<ul className="nav">
-						<NavLink to="/">Home</NavLink>
-						<NavLink to="/recipes">Recipes</NavLink>
-						<NavLink to="/blog">Blog</NavLink>
-					</ul>
-				</nav>
+				<NavbarComponent />
 			</header>
 			<main>
 				<Switch>
@@ -54,12 +60,13 @@ const App = () => {
 						<BlogLandingPage blogData={blogData} />
 					</Route>
 					<Route path="/">
-						<h1>Home</h1>
-						<RecipeCard recipes={recipes} />
+						<HomePage recipes={recipes} />
 					</Route>
 				</Switch>
 			</main>
-			<footer>Footer</footer>
+			<footer>
+				<FooterComponent authors={authors} />
+			</footer>
 		</div>
 	);
 };

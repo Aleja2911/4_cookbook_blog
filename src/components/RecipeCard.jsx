@@ -1,13 +1,37 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
+import RecipeDetail from "../pages/RecipeDetail";
 
 import "bootstrap/dist/css/bootstrap.min.css";
+import Card from "react-bootstrap/Card";
+import Badge from "react-bootstrap/Badge";
 
-const RecipeCard = ({ recipes }) => {
+const RecipeCard = ({ recipe }) => {
+	const { title, shortDescription, quickFacts, featureImage } = recipe.fields;
+
 	return (
-		<div>
-			{recipes.length >= 1 &&
-				recipes.map((recipe) => <p>{recipe.fields.title}</p>)}
-		</div>
+		<Link to="/recipes/:title">
+			<Card>
+				<Card.Img
+					variant="top"
+					src={featureImage.fields.file.url}
+					alt="Card image cap"
+				/>
+				<Card.Body>
+					<Card.Title>{title}</Card.Title>
+					<Card.Text>{shortDescription}</Card.Text>
+					<Card.Text>
+						{quickFacts.length >= 1 &&
+							quickFacts.map((quickFact) => (
+								<Badge variant="secondary" key="index">
+									{quickFact}
+								</Badge>
+							))}
+					</Card.Text>
+				</Card.Body>
+			</Card>
+		</Link>
 	);
 };
 
