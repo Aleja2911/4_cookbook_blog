@@ -13,6 +13,7 @@ import AuthorDetail from "./pages/AuthorDetail";
 // importing components //
 import NavbarComponent from "./components/NavbarComponent";
 import FooterComponent from "./components/FooterComponent";
+import RecipeDetail from "./pages/RecipeDetail";
 
 const App = () => {
 	// set up the states //
@@ -80,6 +81,9 @@ const App = () => {
 							<HomePage recipes={recipes} {...props} />
 						)}
 					/>
+					<Route path={"/recipes/slug/"}>
+						<RecipeDetail recipes={recipes} />
+					</Route>
 				</Switch>
 			</main>
 			<footer>

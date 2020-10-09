@@ -22,7 +22,7 @@ const RecipeCard = ({ recipe }) => {
 					<Card.Text>
 						{quickFacts.length >= 1 &&
 							quickFacts.map((quickFact) => (
-								<Badge variant="secondary" key="index">
+								<Badge variant="dark" key="index">
 									{quickFact}
 								</Badge>
 							))}
