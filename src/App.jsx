@@ -4,10 +4,13 @@ import { Switch, Route } from "react-router-dom";
 // contentful client //
 import { client } from "./client.js";
 
-// importing components //
+// importing pages //
+import HomePage from "./pages/HomePage";
 import RecipesLandingPage from "./pages/RecipesLandingPage";
 import BlogLandingPage from "./pages/BlogLandingPage";
-import HomePage from "./pages/HomePage";
+import AuthorDetail from "./pages/AuthorDetail";
+
+// importing components //
 import NavbarComponent from "./components/NavbarComponent";
 import FooterComponent from "./components/FooterComponent";
 
@@ -36,7 +39,7 @@ const App = () => {
 			})
 			.catch((error) => console.log("ERROR"));
 	}, []);
-
+	// get all persons (content_type = contentful) //
 	useEffect(() => {
 		client
 			.getEntries({ content_type: "person" })
@@ -53,15 +56,30 @@ const App = () => {
 			</header>
 			<main>
 				<Switch>
-					<Route path="/recipes/">
-						<RecipesLandingPage recipes={recipes} />
-					</Route>
-					<Route path="/blog/">
-						<BlogLandingPage blogData={blogData} />
-					</Route>
-					<Route path="/">
-						<HomePage recipes={recipes} />
-					</Route>
+					<Route
+						path="/recipes"
+						render={(props) => (
+							<RecipesLandingPage recipes={recipes} {...props} />
+						)}
+					/>
+					<Route
+						path="/blog"
+						render={(props) => (
+							<BlogLandingPage blogData={blogData} {...props} />
+						)}
+					/>
+					<Route
+						path="/authors/:name"
+						render={(props) => (
+							<AuthorDetail authors={authors} {...props} />
+						)}
+					/>
+					<Route
+						path="/"
+						render={(props) => (
+							<HomePage recipes={recipes} {...props} />
+						)}
+					/>
 				</Switch>
 			</main>
 			<footer>
