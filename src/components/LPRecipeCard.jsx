@@ -2,12 +2,19 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import Card from "react-bootstrap/Card";
-import Badge from "react-bootstrap/Badge";
+import Button from "react-bootstrap/Button";
 
-const RecipeCard = ({ recipe }) => {
-	const { title, shortDescription, quickFacts, featureImage } = recipe.fields;
+
+
+
+
+const LPRecipeCard = ({ recipe, history }) => {
+	const { title, slug, shortDescription, featureImage, } = recipe.fields;
+
+
 
 	return (
 		<Link to="/recipes/:title">
@@ -20,18 +27,13 @@ const RecipeCard = ({ recipe }) => {
 				<Card.Body>
 					<Card.Title>{title}</Card.Title>
 					<Card.Text>{shortDescription}</Card.Text>
-					<Card.Text>
-						{quickFacts.length >= 1 &&
-							quickFacts.map((quickFact) => (
-								<Badge variant="dark" key="index">
-									{quickFact}
-								</Badge>
-							))}
-					</Card.Text>
+					<Link to={`/recipes/${slug}/`}>
+               			 <Button history={history}> Click Me! </Button>
+           			 </Link>
 				</Card.Body>
 			</Card>
 		</Link>
 	);
 };
 
-export default RecipeCard;
+export default LPRecipeCard;

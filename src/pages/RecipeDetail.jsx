@@ -1,7 +1,17 @@
 import React from "react";
+import RecipeDetailTemplate from "../components/RecipeDetailTemplate";
+import JumbotronComponent from "../components/JumbotronComponent";
 
-const RecipeDetail = () => {
-	return <h1>RecipeDetail</h1>;
-};
 
+
+const RecipeDetail = ({recipes}) => {
+	return(
+	<div>
+	<JumbotronComponent />
+	<RecipeDetailTemplate recipes={recipes} />
+	
+
+	</div> 
+	);
+}; 
 export default RecipeDetail;
