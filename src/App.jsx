@@ -10,6 +10,7 @@ import BlogLandingPage from "./pages/BlogLandingPage";
 import HomePage from "./pages/HomePage";
 import NavbarComponent from "./components/NavbarComponent";
 import FooterComponent from "./components/FooterComponent";
+import RecipeDetail from "./pages/RecipeDetail";
 
 const App = () => {
 	// set up the states //
@@ -55,6 +56,9 @@ const App = () => {
 				<Switch>
 					<Route path="/recipes/">
 						<RecipesLandingPage recipes={recipes} />
+					</Route>
+					<Route path={"/recipes/slug/"}>
+						<RecipeDetail recipes={recipes} />
 					</Route>
 					<Route path="/blog/">
 						<BlogLandingPage blogData={blogData} />
