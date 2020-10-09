@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom"
 
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
@@ -22,10 +23,10 @@ const NavbarComponent = () => {
 						/>
 					</Navbar.Brand>
 				</Nav>
-				<Nav>
-					<Nav.Link href="/">Home</Nav.Link>
-					<Nav.Link href="/recipes">Recipes</Nav.Link>
-					<Nav.Link href="/blog">Blog</Nav.Link>
+				<Nav id="navmenu">
+					<NavLink to="/">Home</NavLink>
+					<NavLink to="/recipes">Recipes</NavLink>
+					<NavLink to="/blog">Blog</NavLink>
 				</Nav>
 			</Container>
 		</Navbar>

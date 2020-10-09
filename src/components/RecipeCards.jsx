@@ -4,9 +4,10 @@ import Container from "react-bootstrap/Container";
 import RecipeCard from "./RecipeCard";
 
 const RecipeCards = ({ recipes }) => {
+
 	return (
 		<Container>
-			<CardGroup>
+			<CardGroup id="cardgroup">
 				{recipes.length >= 1 &&
 					recipes.map((recipe, index) => (
 						<RecipeCard recipe={recipe} key={index} />

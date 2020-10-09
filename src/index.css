@@ -2,11 +2,6 @@
 	box-sizing: content-box;
 }
 
-nav {
-	display: flex;
-	align-content: space-between;
-}
-
 body {
 	margin: 0;
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
@@ -21,12 +16,44 @@ code {
 		monospace;
 }
 
+/* Cards and Card Groups*/
 .card {
-	max-width: 16rem;
+	max-width: 14rem;
+	border-radius: 2px;
+	float: center;
+	height: 22rem;
+	margin: 1rem;
+	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12),
+		0 1px 2px rgba(0, 0, 0, 0.24);
+	-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12),
+		0 1px 2px rgba(0, 0, 0, 0.24);
+	-ms-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+	-o-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+	-webkit-transition: all 0.25s ease-in-out;
+	-moz-transition: all 0.25s ease-in-out;
+	-ms-transition: all 0.25s ease-in-out;
+	-o-transition: all 0.25s ease-in-out;
+	transition: all 0.25s ease-in-out;
+}
+.card:hover {
+	-webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19),
+		0 6px 6px rgba(0, 0, 0, 0.23);
+	-moz-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19),
+		0 6px 6px rgba(0, 0, 0, 0.23);
+	-ms-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19),
+		0 6px 6px rgba(0, 0, 0, 0.23);
+	-o-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19),
+		0 6px 6px rgba(0, 0, 0, 0.23);
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
 
-.CardGroup {
-	margin: 10px;
+#cardlink {
+	text-decoration: none;
+}
+
+#cardgroup {
+	justify-content: space-around;
 }
 
 .badge {
@@ -39,21 +66,42 @@ code {
 }
 
 /* Style Components*/
+
+/* Style Navigation */
+.navbar {
+	text-decoration: none;
+	justify-content: space-between;
+}
+
 /* Style Jumbotron*/
 .jumbotron {
 	color: black;
-}
-
-.jumbotron-image {
-	background-color: url(./images/logo.png);
+	background-color: url(./images/neon.jpg);
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-size: cover;
 }
 
+/* Author Detail Card */
+.authorCard {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	max-width: 300px;
+	margin: auto;
+	padding-bottom: 1rem;
+	text-align: center;
+}
+
+.title {
+	color: grey;
+	font-size: 18px;
+}
+
+button:hover,
+a:hover {
+	opacity: 0.7;
+}
 h2 {
 	color: black; 
 	text-align: center;
 
 }
-
