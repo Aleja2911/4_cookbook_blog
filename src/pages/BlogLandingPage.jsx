@@ -1,20 +1,21 @@
 import React from "react";
 import JumbotronComponent from "../components/JumbotronComponent";
 import BlogEntryPreviews from "../components/BlogEntryPreviews";
-import { Switch, Route } from "react-router-dom";
-import BlogDetail from "../pages/BlogDetail";
+import Container from "react-bootstrap/Container"
 
 
 const BlogLandingPage = ({ blogData }) => {
 
 
 	return (
-		<div>
-			<JumbotronComponent />
+	<Container>
+		<JumbotronComponent />
+		
 			<h1> The Chronicles of Cheese </h1>
-			<BlogEntryPreviews blogData={} />
+			<BlogEntryPreviews blogData={blogData} />
 			
-		</div>
+	</Container>
+	
 	);
 };
 
