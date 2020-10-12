@@ -17,7 +17,7 @@ const LPRecipeCard = ({ recipe, history }) => {
 
 
 	return (
-		<Link to="/recipes/:title">
+		
 			<Card>
 				<Card.Img
 					variant="top"
@@ -32,7 +32,7 @@ const LPRecipeCard = ({ recipe, history }) => {
            			 </Link>
 				</Card.Body>
 			</Card>
-		</Link>
+		
 	);
 };
 

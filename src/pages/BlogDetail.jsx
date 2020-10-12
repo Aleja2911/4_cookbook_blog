@@ -1,30 +1,41 @@
 import React from "react";
 import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-
+import BlogDetailTemplate from "../components/BlogDetailTemplate";
+import { Switch, Route, useParams  } from "react-router-dom";
 
 const BlogDetail = ({blogData}) => {
 
 
+   console.log("chicken");
+
+    const {slug} = useParams();
+        const newBlogs =  blogData.find(
+            blog => blog.fields.slug === slug
+        )
+console.log(newBlogs);
+    // const[blogTemplates, setBlogTemplates] = useState(null);
+
+    // useEffect(() => {
+    //     axios({
+    //         url: content_type: "blogPost" 
+    //     })
+    //     .then(response => response.json())
+    // })
+
+
     return (
 
-
    <Container>
-    <Row>
-    <Col>Logo</Col>
-    <Col>Nav Bar </Col>
-    <Col>SearchBar </Col>
 
-    <Row>Hero Image</Row>
-    <Row>
-        Content
-    </Row>
-
-    </Row>
-        
-   </Container>
-
+        { newBlogs && 
+       <h1> {newBlogs.fields.title} </h1> 
+        }
+        {/* <Switch>
+            <Route path="/blog/:title"
+            render={(props) => <BlogDetailTemplate blogTemplates={newBlogs}/>}>         
+            </Route>
+        </Switch> */}
+    </Container> 
     )
 }
 
