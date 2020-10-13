@@ -23,7 +23,7 @@ const AuthorDetail = ({ authors }) => {
 							<div className="authorCard">
 								<img
 									src={`${author.fields.image.fields.file.url}`}
-									alt={`picture of ${author.fields.slug}`}
+									alt={`${author.fields.slug}`}
 								/>
 								<h1>{author.fields.name}</h1>
 								<p className="title">{author.fields.title}</p>

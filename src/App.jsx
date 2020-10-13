@@ -53,8 +53,6 @@ const App = () => {
 			})
 			.catch((error) => console.log("ERROR"));
 	}, []);
-	
-
 
 	return (
 		<div className="App">
@@ -65,23 +63,23 @@ const App = () => {
 			<main>
 				<Switch>
 					<Route
-						path="/recipes/:slug?/"
+						path="/recipes/:slug"
 						render={(props) => (
 							<RecipeDetail recipes={recipes} {...props} />
 						)}
 					/>
 					<Route
-						path="/authors/:slug?"
+						path="/authors/:slug"
 						render={(props) => (
 							<AuthorDetail authors={authors} {...props} />
 						)}
 					/>
-					<Route path={"/blog/:slug?"}
+					<Route
+						path={"/blog/:slug"}
 						render={(props) => (
-						<BlogDetail blogData={blogData} {...props}  />
+							<BlogDetail blogData={blogData} {...props} />
 						)}
 					/>
-
 					<Route
 						path="/recipes"
 						render={(props) => (
@@ -94,8 +92,9 @@ const App = () => {
 							<BlogLandingPage blogData={blogData} {...props} />
 						)}
 					/>
-				<Route
-						exact path="/"
+					<Route
+						exact
+						path="/"
 						render={(props) => (
 							<HomePage recipes={recipes} {...props} />
 						)}
