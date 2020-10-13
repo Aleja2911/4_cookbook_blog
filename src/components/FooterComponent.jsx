@@ -15,8 +15,15 @@ const FooterComponent = ({ authors }) => {
 				<ButtonGroup>
 					{authors.length >= 1 &&
 						authors.map((author, index) => (
-							<Link to={`/authors/${author.fields.slug}`}>
-								<Button variant="secondary" key={index}>
+							<Link
+								key={index}
+								to={`/authors/${author.fields.slug}`}
+							>
+								<Button
+									variant="secondary"
+									key={index}
+									authors={authors}
+								>
 									{author.fields.name}
 								</Button>
 							</Link>

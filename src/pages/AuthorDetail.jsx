@@ -1,8 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { useParams } from "react-router-dom";
 
-import JumbotronComponent from "../components/JumbotronComponent";
+import { Link, useParams } from "react-router-dom";
 
 import Container from "react-bootstrap/Container";
 
@@ -14,29 +12,34 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 const AuthorDetail = ({ authors }) => {
-	const { shortBio, title, email } = authors.fields;
-	/* 	const { name } = useParams; */
-
+	let { slug } = useParams();
 	return (
 		<div>
-			<JumbotronComponent />
-			<Container>
-				<div className="authorCard">
-					<img src="img.jpg" alt="John" />
-					<h1>John Doe</h1>
-					<p className="title">jhg</p>
-					<p>hg</p>
-					<Link to="/">
-						<FontAwesomeIcon icon={faCoffee} />
-					</Link>
-					<Link to="/">
-						<FontAwesomeIcon icon={faHome} />
-					</Link>
-					<a href={`mailto:${email}`}>
-						<FontAwesomeIcon icon={faEnvelope} />
-					</a>
-				</div>
-			</Container>
+			{authors.length >= 1 &&
+				authors
+					.filter((author) => author.fields.slug === slug)
+					.map((author) => (
+						<Container>
+							<div className="authorCard">
+								<img
+									src={`${author.fields.image.fields.file.url}`}
+									alt={`picture of ${author.fields.slug}`}
+								/>
+								<h1>{author.fields.name}</h1>
+								<p className="title">{author.fields.title}</p>
+								<p>{author.fields.shortBio}</p>
+								<Link to="/">
+									<FontAwesomeIcon icon={faCoffee} />
+								</Link>
+								<Link to="/">
+									<FontAwesomeIcon icon={faHome} />
+								</Link>
+								<a href={`mailto:${author.fields.email}`}>
+									<FontAwesomeIcon icon={faEnvelope} />
+								</a>
+							</div>
+						</Container>
+					))}
 		</div>
 	);
 };

@@ -1,20 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-
-
 import "bootstrap/dist/css/bootstrap.min.css";
 import Card from "react-bootstrap/Card";
 
-
-
 const RecipeDetailTemplate = ({ recipe }) => {
+
     const { title, featureImage, ingredients, description} = recipe.fields;
     
-
-
 	return (
-		<Link to="/recipes/:title">
+		<Link to="/recipes/slug">
 			<Card>
 				<Card.Img
 					variant="top"
