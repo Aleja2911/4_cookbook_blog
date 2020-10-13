@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+
+// router //
 import { Switch, Route } from "react-router-dom";
 
 // contentful client //
@@ -9,15 +11,13 @@ import HomePage from "./pages/HomePage";
 import RecipesLandingPage from "./pages/RecipesLandingPage";
 import BlogLandingPage from "./pages/BlogLandingPage";
 import AuthorDetail from "./pages/AuthorDetail";
+import BlogDetail from "./pages/BlogDetail";
+import RecipeDetail from "./pages/RecipeDetail";
 
 // importing components //
 import NavbarComponent from "./components/NavbarComponent";
+import JumbotronComponent from "./components/JumbotronComponent";
 import FooterComponent from "./components/FooterComponent";
-
-import BlogDetail from "./pages/BlogDetail";
-
-import RecipeDetail from "./pages/RecipeDetail";
-
 
 const App = () => {
 	// set up the states //
@@ -60,21 +60,22 @@ const App = () => {
 		<div className="App">
 			<header>
 				<NavbarComponent />
+				<JumbotronComponent />
 			</header>
 			<main>
 				<Switch>
-
 					<Route
-						path="/authors/:name?"
+						path="/recipes/:slug?/"
+						render={(props) => (
+							<RecipeDetail recipes={recipes} {...props} />
+						)}
+					/>
+					<Route
+						path="/authors/:slug?"
 						render={(props) => (
 							<AuthorDetail authors={authors} {...props} />
 						)}
 					/>
-					
-					<Route path={"/recipes/:slug?"}>
-						<RecipeDetail recipes={recipes} />
-					</Route>
-
 					<Route path={"/blog/:slug?"}
 						render={(props) => (
 						<BlogDetail blogData={blogData} {...props}  />

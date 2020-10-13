@@ -1,5 +1,6 @@
 import React from "react";
 import Container from "react-bootstrap/Container";
+
 import CardGroup from 'react-bootstrap/CardGroup';
 import BlogEntryPreview from "./BlogEntryPreview"
 
@@ -17,3 +18,4 @@ const BlogEntryPreviews = ({blogData}) => {
 }
 
 export default BlogEntryPreviews;
+

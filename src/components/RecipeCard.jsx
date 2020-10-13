@@ -6,11 +6,11 @@ import Card from "react-bootstrap/Card";
 import Badge from "react-bootstrap/Badge";
 
 const RecipeCard = ({ recipe }) => {
-	const { title, shortDescription, quickFacts, featureImage } = recipe.fields;
+	const { title, shortDescription, quickFacts, featureImage} = recipe.fields;
 
 	return (
-		<Link to="/recipes/:title" id="cardlink">
-			<Card>
+		<Link to={`/recipes/${title}`} id="cardlink">
+			<Card id="homepageCards">
 				<Card.Img
 					variant="top"
 					src={featureImage.fields.file.url}

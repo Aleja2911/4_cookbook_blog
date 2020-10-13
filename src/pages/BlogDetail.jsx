@@ -1,5 +1,6 @@
 import React from "react";
 import Container from "react-bootstrap/Container";
+
 import BlogDetailTemplate from "../components/BlogDetailTemplate";
 import { Switch, Route, useParams  } from "react-router-dom";
 
@@ -40,3 +41,4 @@ console.log(newBlogs);
 }
 
 export default BlogDetail;
+
