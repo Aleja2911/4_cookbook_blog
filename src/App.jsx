@@ -16,7 +16,6 @@ import RecipeDetail from "./pages/RecipeDetail";
 
 // importing components //
 import NavbarComponent from "./components/NavbarComponent";
-import JumbotronComponent from "./components/JumbotronComponent";
 import FooterComponent from "./components/FooterComponent";
 
 const App = () => {
@@ -44,6 +43,7 @@ const App = () => {
 			})
 			.catch((error) => console.log("ERROR"));
 	}, []);
+	
 	// get all persons (content_type = contentful) //
 	useEffect(() => {
 		client
@@ -58,10 +58,16 @@ const App = () => {
 		<div className="App">
 			<header>
 				<NavbarComponent />
-				<JumbotronComponent />
 			</header>
 			<main>
 				<Switch>
+
+					<Route
+						path="/recipes/tag/:tags"
+						render={(props) => (
+							<RecipesLandingPage recipes={recipes} {...props} />
+						)}
+						/>
 					<Route
 						path="/recipes/:slug"
 						render={(props) => (

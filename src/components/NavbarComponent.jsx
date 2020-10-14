@@ -23,10 +23,10 @@ const NavbarComponent = () => {
 						/>
 					</Navbar.Brand>
 				</Nav>
-				<Nav id="navmenu">
-					<NavLink to="/">Home</NavLink>
-					<NavLink to="/recipes">Recipes</NavLink>
-					<NavLink to="/blog">Blog</NavLink>
+				<Nav>
+					<NavLink id="navmenu" to="/">Home</NavLink>
+					<NavLink id="navmenu" to="/recipes">Recipes</NavLink>
+					<NavLink id="navmenu" to="/blog">Blog</NavLink>
 				</Nav>
 			</Container>
 		</Navbar>
