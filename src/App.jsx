@@ -62,6 +62,13 @@ const App = () => {
 			</header>
 			<main>
 				<Switch>
+
+					<Route
+						path="/recipes/tag/:tags"
+						render={(props) => (
+							<RecipesLandingPage recipes={recipes} {...props} />
+						)}
+						/>
 					<Route
 						path="/recipes/:slug"
 						render={(props) => (
