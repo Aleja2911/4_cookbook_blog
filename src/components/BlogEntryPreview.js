@@ -2,8 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import Accordion from "react-bootstrap/Accordion";
+import Button from "react-bootstrap/Button";
 
-const BlogEntryPreview = ({ preview }) => {
+const BlogEntryPreview = ({ preview, history }) => {
 	const {
 		title,
 		blogShortDescription,
@@ -14,7 +15,7 @@ const BlogEntryPreview = ({ preview }) => {
 	} = preview.fields;
 
 	return (
-		<Link to={`/blog/${slug}`}>
+		
 			<Accordion defaultActiveKey="0">
 				<Card
 					className="blogPreviewCard"
@@ -30,16 +31,19 @@ const BlogEntryPreview = ({ preview }) => {
 						height="60%"
 						src={blogEntryImage.fields.file.url}
 						alt="Card image cap"
-					/>
+					/>			
 					<Accordion.Collapse eventKey="1">
 						<Card.Body>
 							<Card.Text> {author.fields.name} </Card.Text>
 							<Card.Text> {blogShortDescription} </Card.Text>
+							<Link to={`/blog/${slug}`}>
+								<Button history={history}> Read Me! </Button>
+				   			</Link>
 						</Card.Body>
 					</Accordion.Collapse>
+				
 				</Card>
 			</Accordion>
-		</Link>
 	);
 };
 

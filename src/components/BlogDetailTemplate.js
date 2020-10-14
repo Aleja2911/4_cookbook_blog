@@ -13,7 +13,7 @@ const BlogDetailTemplate = ({ newBlogs, blogData }) => {
 		heroImage,
 		publishDate,
 		tags,
-	} = blogData.fields;
+	} = newBlogs.fields;
 
 	return (
 		<Container>
@@ -22,7 +22,7 @@ const BlogDetailTemplate = ({ newBlogs, blogData }) => {
 				<Col>Nav Bar </Col>
 				<Col>SearchBar </Col>
 
-				<Row> {heroImage} </Row>
+				
 				{blogData &&
 					blogData.map((blogTemplate, index) => (
 						<Row blogTemplate={blogTemplate} key={index}>
@@ -33,7 +33,7 @@ const BlogDetailTemplate = ({ newBlogs, blogData }) => {
 							<p> {blogContent} </p>
 							<p>{tags}</p>
 						</Row>
-					))}
+							)		)}
 			</Row>
 		</Container>
 	);
