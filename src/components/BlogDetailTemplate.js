@@ -5,15 +5,7 @@ import Col from "react-bootstrap/Col";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const BlogDetailTemplate = ({ newBlogs, blogData }) => {
-	const {
-		title,
-		author,
-		blogContent,
-		heroImage,
-		publishDate,
-		tags,
-	} = newBlogs.fields;
+const BlogDetailTemplate = ({ blogData }) => {
 
 	return (
 		<Container>
@@ -26,12 +18,7 @@ const BlogDetailTemplate = ({ newBlogs, blogData }) => {
 				{blogData &&
 					blogData.map((blogTemplate, index) => (
 						<Row blogTemplate={blogTemplate} key={index}>
-							<h1> {title} </h1>
-							<p>
-								{author.fields.name} - {publishDate}{" "}
-							</p>
-							<p> {blogContent} </p>
-							<p>{tags}</p>
+						
 						</Row>
 							)		)}
 			</Row>

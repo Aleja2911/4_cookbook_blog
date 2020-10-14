@@ -26,7 +26,7 @@ const oldBlogPosts = sortedPublishedDateArray.slice(3, sortedPublishedDateArray.
 			</Row>
 			<Row>
 				<Col>
-					<Row>
+					<Row id="blogPreviewCards">
 						<BlogEntryPreviews  blogData={blogData} newData={latestBlogPosts} />
 					</Row>
 				</Col>

@@ -105,3 +105,8 @@ h2 {
 	text-align: center;
 
 }
+
+#blogPreviewCards {
+	display: flex;
+	flex-wrap: wrap;
+}
