@@ -4,12 +4,13 @@ import Container from "react-bootstrap/Container";
 import CardGroup from "react-bootstrap/CardGroup";
 import BlogEntryPreview from "./BlogEntryPreview";
 
-const BlogEntryPreviews = ({ blogData }) => {
+const BlogEntryPreviews = ({ newData }) => {
+
 	return (
 		<Container>
 			<CardGroup>
-				{blogData &&
-					blogData.map((preview, index) => (
+				{newData &&
+					newData.map((preview, index) => (
 						<BlogEntryPreview preview={preview} key={index} />
 					))}
 			</CardGroup>

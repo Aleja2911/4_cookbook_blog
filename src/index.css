@@ -135,10 +135,13 @@ h2 {
 	margin-left: 200px;
 }
 
+#blogPreviewCards {
+	display: flex;
+	flex-wrap: wrap;
+}
+
 h3 {
 	color: black;
 	text-align: left;
-	
-	
 }
 
