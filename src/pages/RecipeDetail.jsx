@@ -2,17 +2,26 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 
+
 const RecipeDetail = ({ recipes }) => {
 	let { slug } = useParams();
 	return (
+		
 		<div>
 			{recipes.length >= 1 &&
 				recipes
 					.filter((recipe) => recipe.fields.slug === slug)
 					.map((recipe) => (
-						<div>
-							<h2>{recipe.fields.title}</h2>
-							<Card>
+					
+
+				<div>
+						<Card.Title>
+						<h2>{recipe.fields.title}</h2>
+						</Card.Title>
+							
+							<Card id="recipeDetail">
+						
+							
 								<Card.Img
 									variant="top"
 									src={
@@ -21,22 +30,20 @@ const RecipeDetail = ({ recipes }) => {
 									}
 									alt="Card image cap"
 								/>
-								<Card.Body>
-									<Card.Title>
-										{recipe.fields.title}
-									</Card.Title>
-									<Card.Text>
+								
+									<h3>Ingredients</h3>
+									<Card.Text id="ingredients">
 										{recipe.fields.ingredients}
 									</Card.Text>
 									<Card.Text>
 										{recipe.fields.description}
 									</Card.Text>
-								</Card.Body>
+						
 							</Card>
-						</div>
-					))}
-			{/* <RecipeDetailTemplate recipes={recipes} /> */}
-		</div>
-	);
+				</div>
+			))}
+		{/* <RecipeDetailTemplate recipes={recipes} /> */}
+	</div>
+  );
 };
 export default RecipeDetail;
