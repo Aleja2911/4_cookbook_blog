@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from "react";
 import LPRecipeCards from "../components/LPRecipeCards";
 import { Link } from "react-router-dom";
 
@@ -25,8 +24,35 @@ const RecipesLandingPage = ({ recipes }) => {
 		setProjects(filtered);
 	}, [filter]);
 
+	const [useTag, setUseTag] = useState(null);
+
+	const handleClick = () => {
+		setUseTag({tags})
+
+	}
+
 	return (
 		<div>
+
+		<ButtonGroup>
+		{recipes && recipes.map((recipe, index) => (
+			<Link
+                        key={index}
+                        to= {`/tags/${tags}/`}
+                        >
+
+				<Button 
+				variant= "dark"
+				onClick={handleClick}
+				recipes={recipes}>
+				{recipe.fields.tags}
+				</Button>	
+			</Link>
+		))}
+			</ButtonGroup> 
+			
+		  
+
 			<Jumbotron id="lpRecipeJumbotron" fluid>
 				<Container>
 					<h1>All our recipes</h1>

@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Card from "react-bootstrap/Card";
+import {client} from "../client";
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 
 const RecipeDetail = ({ recipes }) => {
 	let { slug } = useParams();
+
+
+	
 	return (
 		
 		<div>
@@ -24,6 +29,8 @@ const RecipeDetail = ({ recipes }) => {
 							
 								<Card.Img
 									variant="top"
+									width="40%"
+									height="50%"
 									src={
 										recipe.fields.featureImage.fields.file
 											.url
@@ -36,7 +43,10 @@ const RecipeDetail = ({ recipes }) => {
 										{recipe.fields.ingredients}
 									</Card.Text>
 									<Card.Text>
-										{recipe.fields.description}
+									
+									<h3>Method</h3>
+					          	<div>{documentToReactComponents(recipe.fields.description_recipes)}</div> 
+									
 									</Card.Text>
 						
 							</Card>
