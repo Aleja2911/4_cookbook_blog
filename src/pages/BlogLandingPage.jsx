@@ -21,7 +21,7 @@ const oldBlogPosts = sortedPublishedDateArray.slice(3, sortedPublishedDateArray.
 		<Container>
 		<Row>
 			
-		    <Jumbotron id="blogJumbotron" fluid>
+		    <Jumbotron id="blogJumbotron" fluid> </Jumbotron>
 			<Row>
 			    <h1> The Chronicles of Cheese </h1>
 			</Row>
@@ -38,7 +38,7 @@ const oldBlogPosts = sortedPublishedDateArray.slice(3, sortedPublishedDateArray.
 				</Col>
 			</Row>
 		</Row>
-		</Container>
+	</Container>
 	);
 };
 
