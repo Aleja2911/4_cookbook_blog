@@ -13,7 +13,7 @@ const OlderBlogs = ({ oldData, history  }) => {
         {oldData &&
 					oldData.map((oldBlog, index) => (
             <Link  to={`/blog/${oldBlog.fields.slug}`}>             
-				<Button variant="dark" width="10%" height="15%" history={history}> {oldBlog.fields.title} </Button>
+				<Button class="btn btn-secondary btn-lg btn-block" variant="dark" width="10%" height="15%" history={history}> {oldBlog.fields.title} </Button>
             </Link>	   
                 ))}		
         </Card>
