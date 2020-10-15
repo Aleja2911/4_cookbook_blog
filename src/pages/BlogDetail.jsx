@@ -21,11 +21,12 @@ const BlogDetail = ({ blogData }) => {
 			<Row>
 				<Col>
 					<Row>
-						<h1> {newBlog.fields.title} </h1>
-					</Row> 
-					<Row>
 						<img width="100%" height="410rem" src={newBlog.fields.heroImage.fields.file.url} alt="cheese and grapes"/>
 					</Row>
+					<Row>
+						<h1> {newBlog.fields.title} </h1>
+					</Row> 
+					
 					<Row>
 						<p> {newBlog.fields.author.fields.name} </p>
 					</Row>
