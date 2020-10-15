@@ -9,7 +9,7 @@ const HomePage = ({ recipes }) => {
 		<>
 			<Jumbotron id="homePageJumbotron" fluid>
 				<Container>
-					<h1>The Goudather</h1>
+					<h1>The Goudafather</h1>
 					<p>Cheese is our life</p>
 				</Container>
 			</Jumbotron>
