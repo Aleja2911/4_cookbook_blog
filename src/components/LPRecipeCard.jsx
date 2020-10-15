@@ -10,7 +10,7 @@ const LPRecipeCard = ({ recipe, history }) => {
 	const { title, slug, shortDescription, featureImage, tags } = recipe.fields;
 
 	return (
-		<Card>
+		<Card id="lpRecipeCard" tags={tags}>
 		
 			<Card.Img
 				variant="top"
@@ -21,7 +21,7 @@ const LPRecipeCard = ({ recipe, history }) => {
 				<Card.Title>{title}</Card.Title>
 				<Card.Text>{shortDescription}</Card.Text>
 				<Link to={`/recipes/${slug}/`}>
-					<Button history={history}> Click Me! </Button>
+					<Button variant="secondary" history={history}> Click Me! </Button>
 				</Link>
 			</Card.Body>
 		</Card>
