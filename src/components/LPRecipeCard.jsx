@@ -5,13 +5,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 
-
 const LPRecipeCard = ({ recipe, history }) => {
-	const { title, slug, shortDescription, featureImage, } = recipe.fields;
+	const { title, slug, shortDescription, featureImage } = recipe.fields;
 
 	return (
-		<Card id="lpRecipeCard" tags={tags}>
-		
+		<Card id="lpRecipeCard" >
 			<Card.Img
 				variant="top"
 				src={featureImage.fields.file.url}
@@ -21,13 +19,9 @@ const LPRecipeCard = ({ recipe, history }) => {
 				<Card.Title>{title}</Card.Title>
 				<Card.Text>{shortDescription}</Card.Text>
 				<Link to={`/recipes/${slug}/`}>
-
-					<Button 
-					variant= "dark"
-					history={history}>
-					 Make me! 
-					 </Button>
-
+					<Button variant="dark" history={history}>
+						Make me!
+					</Button>
 				</Link>
 			</Card.Body>
 		</Card>
