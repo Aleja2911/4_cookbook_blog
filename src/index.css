@@ -91,7 +91,9 @@ code {
 #homePageJumbotron {
 	background-image: url(./images/goudafather.jpg);
 }
-
+#homePageJumbotron {
+	background-image: url(./images/goudafather.jpg);
+}
 #authorsJumbotron {
 	background-image: url(./images/neon.jpg);
 }

@@ -3,20 +3,13 @@ import Container from "react-bootstrap/Container";
 import { useParams } from "react-router-dom";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 
 const BlogDetail = ({ blogData }) => {
 	const { slug } = useParams();
 
-	// const {
-	// 	title,
-	// 	author,
-	// 	blogContent,
-	// 	heroImage,
-	// 	publishDate,
-	// 	tags,
-	// } = blogData.fields;
+
 
 	return (
 
@@ -28,17 +21,18 @@ const BlogDetail = ({ blogData }) => {
 			<Row>
 				<Col>
 					<Row>
+						<img width="100%" height="410rem" src={newBlog.fields.heroImage.fields.file.url} alt="cheese and grapes"/>
+					</Row>
+					<Row>
 						<h1> {newBlog.fields.title} </h1>
 					</Row> 
-					<Row>
-						<img width="45%" src={newBlog.fields.heroImage.fields.file.url} alt="cheese and grapes"/>
-					</Row>
+					
 					<Row>
 						<p> {newBlog.fields.author.fields.name} </p>
 					</Row>
 					<Row>
 						<p> {newBlog.fields.publishDate} </p>
-						<p> {newBlog.fields.blogContent} </p>  
+						<div>{documentToReactComponents(newBlog.fields.blogContentRich)}</div>
 						<img width="45%" src={newBlog.fields.blogEntryImage.fields.file.url} alt="cheese board"/> 
 					</Row>
 					<Row>
