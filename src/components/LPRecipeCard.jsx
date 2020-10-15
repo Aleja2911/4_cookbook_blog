@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import ButtonGroup from "react-bootstrap/ButtonGroup";
+
 
 const LPRecipeCard = ({ recipe, history }) => {
-	const { title, slug, shortDescription, featureImage, tags } = recipe.fields;
+	const { title, slug, shortDescription, featureImage, } = recipe.fields;
 
 	return (
 		<Card>
@@ -21,7 +21,11 @@ const LPRecipeCard = ({ recipe, history }) => {
 				<Card.Title>{title}</Card.Title>
 				<Card.Text>{shortDescription}</Card.Text>
 				<Link to={`/recipes/${slug}/`}>
-					<Button history={history}> Click Me! </Button>
+					<Button 
+					variant= "dark"
+					history={history}>
+					 Make me! 
+					 </Button>
 				</Link>
 			</Card.Body>
 		</Card>

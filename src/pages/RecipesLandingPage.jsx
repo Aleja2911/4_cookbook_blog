@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment, useState } from "react";
 import LPRecipeCards from "../components/LPRecipeCards";
 import { Link } from "react-router-dom";
 
@@ -11,19 +11,32 @@ import { useParams } from "react-router-dom";
 const RecipesLandingPage = ({ recipes }) => {
 	let { tags } = useParams();
 
+	const [useTag, setUseTag] = useState(null);
+
+	const handleClick = () => {
+		setUseTag({tags})
+
+	}
+
 	return (
 		<div>
 		<ButtonGroup>
 		{recipes && recipes.map((recipe, index) => (
 			<Link
-				key={index}
-				to={`/recipes/tag/${recipe.fields.tags}/`}
-				>
-				<Button recipes={recipes}>{recipe.fields.tags}</Button>
+                        key={index}
+                        to= {`/tags/${tags}/`}
+                        >
+
+				<Button 
+				variant= "dark"
+				onClick={handleClick}
+				recipes={recipes}>
+				{recipe.fields.tags}
+				</Button>	
 			</Link>
 		))}
-
 			</ButtonGroup> 
+			
 		  
 			<div>
 			<LPRecipeCards recipes={recipes} />
