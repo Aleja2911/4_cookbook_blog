@@ -3,6 +3,7 @@ import Container from "react-bootstrap/Container";
 import JumbotronComponent from "../components/JumbotronComponent";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Jumbotron from "react-bootstrap/Jumbotron";
 
 import BlogEntryPreviews from "../components/BlogEntryPreviews";
 import OlderBlogs from "../components/OlderBlogs";
@@ -20,7 +21,7 @@ const oldBlogPosts = sortedPublishedDateArray.slice(3, sortedPublishedDateArray.
 		<Container>
 		<Row>
 			
-
+		    <Jumbotron id="blogJumbotron" fluid>
 			<Row>
 			    <h1> The Chronicles of Cheese </h1>
 			</Row>
