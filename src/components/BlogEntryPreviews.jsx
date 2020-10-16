@@ -1,19 +1,19 @@
 import React from "react";
 import Container from "react-bootstrap/Container";
 
-import CardGroup from "react-bootstrap/CardGroup";
+import CardDeck from "react-bootstrap/CardDeck";
 import BlogEntryPreview from "./BlogEntryPreview";
 
 const BlogEntryPreviews = ({ newData }) => {
 
 	return (
 		<Container>
-			<CardGroup>
+			<CardDeck>
 				{newData &&
 					newData.map((preview, index) => (
 						<BlogEntryPreview preview={preview} key={index} />
 					))}
-			</CardGroup>
+			</CardDeck>
 		</Container>
 	);
 };

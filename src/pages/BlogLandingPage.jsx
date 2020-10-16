@@ -5,6 +5,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Jumbotron from "react-bootstrap/Jumbotron";
 
+import "../css/BlogLandingPage.css";
 import BlogEntryPreviews from "../components/BlogEntryPreviews";
 import OlderBlogs from "../components/OlderBlogs";
 
@@ -19,25 +20,14 @@ const oldBlogPosts = sortedPublishedDateArray.slice(3, sortedPublishedDateArray.
 
 	return (
 		<Container>
+			<Jumbotron id="blogJumbotron" fluid>
+				<h1> The Chronicles of Cheese </h1>
+			</Jumbotron>
 		<Row>
+			<BlogEntryPreviews id="blogPreviewCards" blogData={blogData} newData={latestBlogPosts} />
 			
-		    <Jumbotron id="blogJumbotron" fluid> </Jumbotron>
-			<Row>
-			    <h1> The Chronicles of Cheese </h1>
-			</Row>
-			<Row>
-				<Col>
-					<Row id="blogPreviewCards">
-						<BlogEntryPreviews  blogData={blogData} newData={latestBlogPosts} />
-					</Row>
-				</Col>
-				<Col>
-				
-					<OlderBlogs oldData={oldBlogPosts} />
-				
-				</Col>
-			</Row>
-		</Row>
+			<OlderBlogs oldData={oldBlogPosts} />
+		</Row>			
 	</Container>
 	);
 };
