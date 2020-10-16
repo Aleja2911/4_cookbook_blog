@@ -9,11 +9,14 @@ body {
 		"Helvetica Neue", sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	
+	
 }
 
 code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
 		monospace;
+		
 }
 
 /* Cards and Card Groups*/
@@ -76,7 +79,7 @@ code {
 	text-decoration: none;
 	justify-content: space-between;
 	margin: 1rem;
-	color: black;
+	color: white;
 }
 
 /* Style Jumbotron*/
@@ -91,8 +94,9 @@ code {
 #homePageJumbotron {
 	background-image: url(./images/goudafather.jpg);
 }
-#homePageJumbotron {
-	background-image: url(./images/goudafather.jpg);
+#blogJumbotron {
+	background-image: url(./images/Ratattouille.jpg);
+	width: 70rem;
 }
 #authorsJumbotron {
 	background-image: url(./images/neon.jpg);

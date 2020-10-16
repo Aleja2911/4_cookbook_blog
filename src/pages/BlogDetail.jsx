@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-
+import "../css/BlogLandingPage.css";
 
 const BlogDetail = ({ blogData }) => {
 	const { slug } = useParams();
@@ -13,7 +13,7 @@ const BlogDetail = ({ blogData }) => {
 
 	return (
 
-		<Container>
+		<Container id="detailBody">
 			{blogData.length >= 1 &&
 							blogData
 		.filter((newBlog) => newBlog.fields.slug === slug)
