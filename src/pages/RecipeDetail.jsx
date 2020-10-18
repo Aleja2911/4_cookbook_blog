@@ -2,6 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import "../css/RecipeLandingPage.css";
 
 const RecipeDetail = ({ recipes }) => {
 	let { slug } = useParams();
@@ -13,11 +14,11 @@ const RecipeDetail = ({ recipes }) => {
 					.filter((recipe) => recipe.fields.slug === slug)
 					.map((recipe) => (
 						<div>
-							<Card.Title>
-								<h2>{recipe.fields.title}</h2>
+							<Card.Title id= "recipeTitle">
+								<p>{recipe.fields.title}</p>
 							</Card.Title>
 
-							<Card id="recipeDetail">
+							<Card id="recipeDetailCard">
 								<Card.Img
 									variant="top"
 									width="40%"
@@ -29,13 +30,13 @@ const RecipeDetail = ({ recipes }) => {
 									alt="Card image cap"
 								/>
 
-								<h3>Ingredients</h3>
+								<p id="RPIngredients">Ingredients</p>
 								<Card.Text id="ingredients">
 									{recipe.fields.ingredients}
 								</Card.Text>
 								<Card.Text>
-									<h3>Method</h3>
-									<div>
+									<p id="RPMethod">Method</p>
+									<div id="RPmethodDetails">
 										{documentToReactComponents(
 											recipe.fields.description_recipes
 										)}

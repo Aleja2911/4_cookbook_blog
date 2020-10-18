@@ -3,14 +3,16 @@ import RecipeCards from "../components/RecipeCards";
 
 import Container from "react-bootstrap/Container";
 import Jumbotron from "react-bootstrap/Jumbotron";
+import "../css/RecipeLandingPage.css";
+
 
 const HomePage = ({ recipes }) => {
 	return (
 		<>
 			<Jumbotron id="homePageJumbotron" fluid>
 				<Container>
-					<h1>The Goudafather</h1>
-					<p>Cheese is our life</p>
+					<p id="theGoudaFather">The Goudafather</p>
+					<p id="CheeseIsLife">Cheese is our life.</p>
 				</Container>
 			</Jumbotron>
 			<Container>

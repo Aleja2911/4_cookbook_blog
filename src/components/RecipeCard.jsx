@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Card from "react-bootstrap/Card";
 import Badge from "react-bootstrap/Badge";
+import "../css/RecipeLandingPage.css";
 
 const RecipeCard = ({ recipe }) => {
 	const {
@@ -23,8 +24,8 @@ const RecipeCard = ({ recipe }) => {
 					alt={`image of ${title}`}
 				/>
 				<Card.Body>
-					<Card.Title key={title}>{title}</Card.Title>
-					<Card.Text>{shortDescription}</Card.Text>
+					<Card.Title key={title} id="lpTitle">{title}</Card.Title>
+					<Card.Text id="lpDescription">{shortDescription}</Card.Text>
 					<Card.Text>
 						{quickFacts.length >= 1 &&
 							quickFacts.map((quickFact, index) => (
