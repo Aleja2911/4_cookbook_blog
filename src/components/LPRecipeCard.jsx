@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
 import "../css/RecipeLandingPage.css";
 
 const LPRecipeCard = ({ recipe, history }) => {

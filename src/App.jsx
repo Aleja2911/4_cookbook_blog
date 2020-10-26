@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
 
 // contentful client //
-import { client } from "./client.js";
+// import { client } from "./client.js";
 
 // importing pages //
 import HomePage from "./pages/HomePage";
@@ -25,34 +25,52 @@ const App = () => {
 	const [authors, setAuthors] = useState([]);
 
 	// get all recipes (content_type = contentful) //
-	useEffect(() => {
+	/* 	useEffect(() => {
 		client
 			.getEntries({ content_type: "recipes" })
 			.then((response) => {
 				setRecipes(response.items);
 			})
 			.catch((error) => console.log("ERROR"));
-	}, []);
+	}, []); */
 
 	// get all blog posts (content_type = contentful) //
-	useEffect(() => {
+	/* 	useEffect(() => {
 		client
 			.getEntries({ content_type: "blogPost" })
 			.then((response) => {
 				setBlogData(response.items);
 			})
 			.catch((error) => console.log("ERROR"));
-	}, []);
-	
+	}, []); */
+
 	// get all persons (content_type = contentful) //
 	useEffect(() => {
-		client
-			.getEntries({ content_type: "person" })
-			.then((response) => {
-				setAuthors(response.items);
-			})
-			.catch((error) => console.log("ERROR"));
+		fetch("http://localhost:3000/api/recipes")
+			.then((response) => response.json())
+			.then((data) => setRecipes({data}))
+			.catch((error) => console.log("ERROR"))
 	}, []);
+
+	console.log(recipes.data);
+
+	useEffect(() => {
+		fetch("http://localhost:3000/api/authors")
+			.then((response) => response.json())
+			.then((data) => setAuthors({data}))
+			.catch((error) => console.log("ERROR"))
+	}, []);
+
+	console.log(authors.data);
+
+	useEffect(() => {
+		fetch("http://localhost:3000/api/blogPosts")
+			.then((response) => response.json())
+			.then((data) => setBlogData({data}))
+			.catch((error) => console.log("ERROR"))
+	}, []);
+
+	console.log(blogData.data);
 
 	return (
 		<div className="App">
@@ -61,13 +79,12 @@ const App = () => {
 			</header>
 			<main>
 				<Switch>
-
 					<Route
 						path="/recipes/tag/:tags"
 						render={(props) => (
 							<RecipesLandingPage recipes={recipes} {...props} />
 						)}
-						/>
+					/>
 					<Route
 						path="/recipes/:slug"
 						render={(props) => (

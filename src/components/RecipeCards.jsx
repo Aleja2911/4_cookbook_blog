@@ -4,7 +4,7 @@ import Container from "react-bootstrap/Container";
 import RecipeCard from "./RecipeCard";
 
 const RecipeCards = ({ recipes }) => {
-	const shuffled = recipes.sort(() => 0.5 - Math.random());
+	const shuffled = recipes.data.sort(() => 0.5 - Math.random());
 	const selected = shuffled.slice(0, 4);
 
 	return (
