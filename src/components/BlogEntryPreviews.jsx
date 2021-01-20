@@ -7,7 +7,7 @@ import BlogEntryPreview from "./BlogEntryPreview";
 const BlogEntryPreviews = ({ newData }) => {
 
 	return (
-		<Container>
+		<Container className="blogPreviews">
 			<CardDeck>
 				{newData &&
 					newData.map((preview, index) => (
