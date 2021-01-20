@@ -12,6 +12,7 @@ const OlderBlogs = ({ oldData, history  }) => {
 
     return (
         <Card id="oldBlogCard">
+        <Card.Title style={{textAlign: 'center'}}>  Older Recepies </Card.Title>
         {oldData &&
 					oldData.map((oldBlog, index) => (
             <Link  to={`/blog/${oldBlog.fields.slug}`}>             

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import Accordion from "react-bootstrap/Accordion";
 import Button from "react-bootstrap/Button";
-import "../css/BlogLandingPage.css";
+
 
 const BlogEntryPreview = ({ preview, history }) => {
 	const {
@@ -18,18 +18,21 @@ const BlogEntryPreview = ({ preview, history }) => {
 	return (
 		<Accordion defaultActiveKey="0">
 			<Card id="blogPreviewCard" text={"light" ? "dark" : "white"}>
-				<Accordion.Toggle as={Card.Header} eventKey="1">
+			  
+				<Accordion.Toggle as={Card.Header} eventKey="1" id="cardToggle">
 					<Card.Title> {title} </Card.Title>
 					<Card.Text> {publishDate} </Card.Text>
-				</Accordion.Toggle>
+					</Accordion.Toggle>
 				<Card.Img
 					variant="top"
 					width="10rem"
-					height="14%"
+					height="5em"
+					id="cardImage"
 					src={blogEntryImage.fields.file.url}
 					alt="Card image cap"
 				/>
-				<Accordion.Collapse eventKey="1">
+				
+				<Accordion.Collapse id='collapsing' eventKey="1">
 					<Card.Body>
 						<Card.Text> {author.fields.name} </Card.Text>
 						<Card.Text> {blogShortDescription} </Card.Text>
@@ -38,6 +41,7 @@ const BlogEntryPreview = ({ preview, history }) => {
 						</Link>
 					</Card.Body>
 				</Accordion.Collapse>
+				
 			</Card>
 		</Accordion>
 	);
